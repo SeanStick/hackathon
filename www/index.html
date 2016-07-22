@@ -6,24 +6,26 @@
 		<title>SoYTAP</title>
 
 		<!-- cordova script (this will be a 404 during development) -->
-		<script src="../cordova.js"></script>
+		<script src="cordova.js"></script>
 
 		<!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
 		<link href="css/ionic.app.css" rel="stylesheet">
 		-->
 
 		<!-- Latest compiled and minified CSS -->
-		<link rel="stylesheet" href="../css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/bootstrap.min.css">
 
 		<!-- Optional theme -->
-		<link rel="stylesheet" href="../css/bootstrap-theme.min.css">
+		<link rel="stylesheet" href="css/bootstrap-theme.min.css">
 
 		<!-- Latest compiled and minified JavaScript -->
-		<script src="../js/jquery.js"></script>
-		<script src="../js/bootstrap.min.js"></script>
+		<script src="js/jquery.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+        <script src="js/takeapic.js"></script>
+
 		<script>
 			$(function(){
-				$("#main").load("../templates/menu.html");
+				$("#main").load("templates/menu.html");
 			});
 		</script>
 	</head>
@@ -32,9 +34,9 @@
 		<div class="row">
 		  <div class="col-lg-6">
 			<div class="input-group">
-			  <input type="text" class="form-control" placeholder="Search for...">
+			  <input type="text" class="form-control" id="rtcText" placeholder="Search for...">
 			  <span class="input-group-btn">
-				<button class="btn btn-default" type="button">Go!</button>
+				<button class="btn btn-default" type="button" onclick="sendTextData()">Go!</button>
 			  </span>
 			</div>
 		  </div>
@@ -42,11 +44,14 @@
 
 		<div class="btn-group" role="group">
 			<button type="button" class="btn btn-default btn-lg">
-				<span class="glyphicon glyphicon-camera" aria-hidden="true"></span>
+				<span class="glyphicon glyphicon-camera" aria-hidden="true" onclick="takephoto()"></span>
 			</button>
-			<button type="button" class="btn btn-default btn-lg">
+			<button type="button" class="btn btn-default btn-lg" onclick="scan()">
 			 	<span class="glyphicon glyphicon-qrcode" aria-hidden="true"></span>
 			</button>
 		</div>
+        <div>
+            <img src="" id="myImage" height="200px" width="200px"/>
+        </div>
 	</body>
 </html>
