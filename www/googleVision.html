@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<meta http-equiv="Content-Security-Policy" content="default-src * data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'">
 	<title>Document</title>
 	<script src="js/jquery-1.12.4.min.js"></script>
 	<script>
@@ -11,49 +12,50 @@
   		var base64Image;
   		var preview = document.querySelector('img');
   		reader.addEventListener("load", function(){
-  			base64Image = reader.result.replace(/data\:image\/jpeg;base64,/g, "");
-			
-			dataPacket = {
-				"key": "AIzaSyAkmciEMCM4IyBvgDkXUPCg-YLiVIwwxRE",
+  			base64Image = reader.result;
+
+			/*dataPacket = {
 				"requests":
 				[
 					{
 						"features":
 						[
 							{
-								"type": "TEXT_DETECTION"
+								"type": "TEXT_DETECTION",
+								"maxResults": 1
 							}
 						],
 						"image":
 						{
-							"content": base64Image
-						},
-						"key": "AIzaSyAkmciEMCM4IyBvgDkXUPCg-YLiVIwwxRE"
+							"content": ""
+						}
 					}
 				]
-			};
-			
-			console.log(dataPacket);
+			};*/
+			dataPacket = {"requests":[{"features":[{"type":"TEXT_DETECTION","maxResults":1}],"image":{"content":base64Image.replace(/data\:image\/jpeg;base64,/g, "")}}]};
+			//dataPacket.requests[0].image.content = base64Image.replace(/data\:image\/jpeg;base64,/g, "");
+
 			callGoogleVision(dataPacket);
-			
+
   			preview.src = reader.result;
-			
+
   		}, false);
 		if(file){
 			reader.readAsDataURL(file);
 		}
 	}
-	
+
 	function callGoogleVision(data){
+		console.log(data);
 		$.ajax({
 			type:"POST",
-			url: "https://vision.googleapis.com/v1/images:annotate",
-			data: data,
-			dataType: "json",
+			url: "https://vision.googleapis.com/v1/images:annotate?key=AIzaSyAkmciEMCM4IyBvgDkXUPCg-YLiVIwwxRE",
+			data: JSON.stringify(data),
 			cache: false,
 			headers: {
 				key: "AIzaSyAkmciEMCM4IyBvgDkXUPCg-YLiVIwwxRE"
 			},
+			contentType: "text/plain;charset=UTF-8",
 			success: function( resp ){
 				// it works
 				$("#results").html(resp);
