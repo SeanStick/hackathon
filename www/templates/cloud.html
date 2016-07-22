@@ -4,21 +4,9 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
 		<title>SoYTAP</title>
-
-		<!-- cordova script (this will be a 404 during development) -->
 		<script src="../cordova.js"></script>
-
-		<!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
-		<link href="css/ionic.app.css" rel="stylesheet">
-		-->
-
-<!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="../css/bootstrap.min.css">
-
-<!-- Optional theme -->
 <link rel="stylesheet" href="../css/bootstrap-theme.min.css">
-
-<!-- Latest compiled and minified JavaScript -->
 <script src="../js/jquery.js"></script>
 <script src="../js/bootstrap.min.js"></script>
 <script>
@@ -29,7 +17,37 @@
 	</head>
 	<body>
 		<div id="cloudDiv"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4 col-md-offset-7">
+					<div class="panel panel-default">
+						<div class="panel-heading"> <strong class="">Cloud</strong></div>
+						<div class="panel-body">
+							<form class="form-horizontal" role="form">
+								<div class="form-group">
+									<label for="inputURL3" class="col-sm-3 control-label">URL</label>
+									<div class="col-sm-9">
+										<input type="email" class="form-control" id="inputURL3" placeholder="URL" required="">
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="inputTeam3" class="col-sm-3 control-label">Team</label>
+									<div class="col-sm-9">
+										<input type="text" class="form-control" id="inputTeam3" placeholder="Team" required="">
+									</div>
+								</div>
 
-			this is cloud.
+								<div class="form-group last">
+									<div class="col-sm-offset-3 col-sm-9">
+										<button type="submit" class="btn btn-success btn-sm">Update</button>
+										<button type="reset" class="btn btn-default btn-sm">Reset</button>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</body>
 </html>
