@@ -5,15 +5,16 @@
 		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
 		<title>SoYTAP</title>
 		<script src="../cordova.js"></script>
-<link rel="stylesheet" href="../css/bootstrap.min.css">
-<link rel="stylesheet" href="../css/bootstrap-theme.min.css">
-<script src="../js/jquery.js"></script>
-<script src="../js/bootstrap.min.js"></script>
-<script>
-	$(function(){
-		$("#cloudDiv").load("../templates/menu.html");
-	});
-</script>
+		<link rel="stylesheet" href="../css/bootstrap.min.css">
+		<link rel="stylesheet" href="../css/bootstrap-theme.min.css">
+		<link rel="stylesheet" href="../css/styles.css">
+		<script src="../js/jquery.js"></script>
+		<script src="../js/bootstrap.min.js"></script>
+		<script>
+			$(function(){
+				$("#cloudDiv").load("../templates/menu.html");
+			});
+		</script>
 	</head>
 	<body>
 		<div id="cloudDiv"></div>
@@ -25,13 +26,11 @@
 						<div class="panel-body">
 							<form class="form-horizontal" role="form">
 								<div class="form-group">
-									<label for="inputURL3" class="col-sm-3 control-label">URL</label>
 									<div class="col-sm-9">
 										<input type="email" class="form-control" id="inputURL3" placeholder="URL" required="">
 									</div>
 								</div>
 								<div class="form-group">
-									<label for="inputTeam3" class="col-sm-3 control-label">Team</label>
 									<div class="col-sm-9">
 										<input type="text" class="form-control" id="inputTeam3" placeholder="Team" required="">
 									</div>
@@ -39,8 +38,8 @@
 
 								<div class="form-group last">
 									<div class="col-sm-offset-3 col-sm-9">
-										<button type="submit" class="btn btn-success btn-sm">Update</button>
-										<button type="reset" class="btn btn-default btn-sm">Reset</button>
+										<button type="submit" class="btn btn-success btn-md">Update</button>
+										<button type="reset" class="btn btn-default btn-md">Reset</button>
 									</div>
 								</div>
 							</form>

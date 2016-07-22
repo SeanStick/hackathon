@@ -16,17 +16,12 @@
 	margin-left: 5px;
 	margin-right: 5px;
 }
-.buttons-bottom {
-    height:175px;
-    position:absolute;
-    bottom:0;
+.margin-top{
+	margin-top: 10px;
 }
 
-.center{
-    left:50%;
-}
 
 .speech {border: 1px solid #DDD; border-radius: 5px; margin: 0; padding: 0}
-.speech input {border: 0; width: 240px; display: inline-block; height: 40px;  padding: 5px}
+.speech input {border: 0; width: 240px; display: inline-block; height: 30px;  padding: 5px}
 .speech img {float: right; width: 40px; height: 40px }
 .speech button {float: right; height: 40px }
