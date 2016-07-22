@@ -12,20 +12,20 @@
 		<link href="css/ionic.app.css" rel="stylesheet">
 		-->
 
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="../css/bootstrap.min.css">
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="../css/bootstrap.min.css">
 
-<!-- Optional theme -->
-<link rel="stylesheet" href="../css/bootstrap-theme.min.css">
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="../css/bootstrap-theme.min.css">
 
-<!-- Latest compiled and minified JavaScript -->
-<script src="../js/jquery.js"></script>
-<script src="../js/bootstrap.min.js"></script>
-<script>
-	$(function(){
-		$("#main").load("../templates/menu.html");
-	});
-</script>
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="../js/jquery.js"></script>
+		<script src="../js/bootstrap.min.js"></script>
+		<script>
+			$(function(){
+				$("#main").load("../templates/menu.html");
+			});
+		</script>
 	</head>
 	<body>
 		<div id="main"></div>
@@ -36,12 +36,17 @@
 			  <span class="input-group-btn">
 				<button class="btn btn-default" type="button">Go!</button>
 			  </span>
-			</div><!-- /input-group -->
-		  </div><!-- /.col-lg-6 -->
-		</div><!-- /.row -->
+			</div>
+		  </div>
+		</div>
 
-		<button type="button" class="btn btn-default btn-lg">
-		  <span class="glyphicon glyphicon-camera" aria-hidden="true"></span>
-		</button>
+		<div class="btn-group" role="group">
+			<button type="button" class="btn btn-default btn-lg">
+				<span class="glyphicon glyphicon-camera" aria-hidden="true"></span>
+			</button>
+			<button type="button" class="btn btn-default btn-lg">
+			 	<span class="glyphicon glyphicon-qrcode" aria-hidden="true"></span>
+			</button>
+		</div>
 	</body>
 </html>
