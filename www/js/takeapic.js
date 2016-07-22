@@ -8,6 +8,9 @@ function takephoto() {
 function onSuccess(imageData) {
     var image = document.getElementById('myImage');
     image.src = "data:image/jpeg;base64," + imageData;
+    dataPacket = {"requests":[{"features":[{"type":"TEXT_DETECTION","maxResults":1}],"image":{"content":imageData}}]};
+
+    callGoogleVision(dataPacket);
     document.getElementById("text1").innerHTML = imageData;
 }
 
@@ -15,21 +18,15 @@ function onFail(message) {
     alert('Failed because: ' + message);
 }
 
-function sendData(message) {
-    alert("start");
-
-   
-// $.post( "http://soytap.azurewebsites.net/api", function( data ) {
-//   // $( ".result" ).html( data );
-//   alert(data);
-// });
-
+function sendData(message) {  
     $.ajax({
         url: 'http://soytap.azurewebsites.net/api',
         type: 'post',
         data: {
             card: message,
-            user: '1'
+            user: '1',
+            toast: true,
+            openTab: true
         },
         headers: {
             type: 'RTC'
@@ -39,8 +36,6 @@ function sendData(message) {
         },
         cache: false
     });
-
-
 }
 
 
@@ -51,9 +46,8 @@ function scan()
             if(!result.cancelled)
             {
                 if(result.format == "QR_CODE")
-                {                    
-                    console.log("QR Data");
-                    alert(result.text);
+                {                  
+                                   
                     sendData(result.text)
                 }
             }
@@ -65,5 +59,45 @@ function scan()
 }
 
 function sendTextData() {
-    sendData($("#rtcText").val())
+    sendData($("#transcript").val())
+    alert($("#transcript").val())
 }
+
+
+
+function callGoogleVision(data){
+        console.log(data);
+        $.ajax({
+            type:"POST",
+            url: "https://vision.googleapis.com/v1/images:annotate?key=AIzaSyAkmciEMCM4IyBvgDkXUPCg-YLiVIwwxRE",
+            data: JSON.stringify(data),
+            cache: false,
+            headers: {
+                key: "AIzaSyAkmciEMCM4IyBvgDkXUPCg-YLiVIwwxRE"
+            },
+            contentType: "text/plain;charset=UTF-8",
+            success: function( resp ){
+                // it works
+                $("#results").html(resp);
+                console.log(resp);
+                strResp = JSON.stringify(resp);
+
+                var re = /\d{6}/;
+                var str = "fee 123456 fi fo fum";
+                var myArray = strResp.match(re);
+                console.log(myArray[0]);
+                // alert(myArray[0]);
+                sendData(myArray[0]);
+
+            },
+            error: function( resp ){
+                // error!
+                $("#results").html(resp);
+                console.log(resp);
+            },
+            complete: function(jqXHR, textStatus){
+                // probably don't need
+            }
+        });
+    }
+
