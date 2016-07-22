@@ -89,6 +89,12 @@ function callGoogleVision(data){
                 // alert(myArray[0]);
                 sendData(myArray[0]);
 
+                // for (var i = 0; i < myArray; i++) {
+                //     alert(myArray[i]);
+                //     //Do something
+                // }
+
+
             },
             error: function( resp ){
                 // error!
