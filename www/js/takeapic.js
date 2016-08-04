@@ -95,6 +95,7 @@ function callGoogleVision(data){
 				var str = "fee 123456 fi fo fum";
 				var myArray = strResp.match(re);
 				console.log(myArray[0]);
+        alert("google returned" + myArray[0]);
 				// alert(myArray[0]);
 				sendData(myArray[0]);
 
