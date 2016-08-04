@@ -49,5 +49,6 @@
     <allow-intent href="*" />
     <allow-navigation href="*" />
     <allow-navigation href="http://*/*" />
+    <allow-navigation href="file://*" />
   </platform>
 </widget>

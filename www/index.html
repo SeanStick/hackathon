@@ -14,7 +14,7 @@
 
 		<script>
 			$(function(){
-				$("#main").load("templates/menu.html");
+				$("#main").load("menu.html");
 			});
       $( document ).ready(function() {
         var userID = localStorage.getItem("userID");
@@ -33,7 +33,7 @@
 							<form class="form-horizontal" role="form">
 								<div class="speech input-group ">
 									<input type="number" name="q" id="transcript" placeholder="Enter RTC Number"  />
-									<img onclick="startDictation()" src="//i.imgur.com/cHidSVu.gif" />
+									<img onclick="startDictation()" src="http://i.imgur.com/cHidSVu.gif" />
 									<span class="input-group-btn">
 										<button class="btn btn-default" type="button" onclick="sendTextData()">
 											<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
