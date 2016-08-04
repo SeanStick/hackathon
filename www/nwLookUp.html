@@ -4,15 +4,15 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
 		<title>SoYTAP</title>
-		<script src="../cordova.js"></script>
-		<link rel="stylesheet" href="../css/bootstrap.min.css">
-		<link rel="stylesheet" href="../css/bootstrap-theme.min.css">
-		<link rel="stylesheet" href="../css/styles.css">
-		<script src="../js/jquery.js"></script>
-		<script src="../js/bootstrap.min.js"></script>
+		<script src="cordova.js"></script>
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+		<link rel="stylesheet" href="css/styles.css">
+		<script src="js/jquery.js"></script>
+		<script src="js/bootstrap.min.js"></script>
 		<script>
 			$(function(){
-				$("#main").load("../templates/menu.html");
+				$("#main").load("menu.html");
 			});
 		</script>
 	</head>
@@ -27,7 +27,7 @@
 							<form class="form-horizontal" role="form">
 								<div class="speech input-group ">
 									<input type="text" name="q" id="transcript" placeholder="Enter Policy Number"  />
-									<img onclick="startDictation()" src="//i.imgur.com/cHidSVu.gif" />
+									<img onclick="startDictation()" src="http://i.imgur.com/cHidSVu.gif" />
 									<span class="input-group-btn">
 										<button class="btn btn-default" type="button" onclick="sendTextData()">
 											<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
