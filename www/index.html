@@ -16,6 +16,10 @@
 			$(function(){
 				$("#main").load("templates/menu.html");
 			});
+      $( document ).ready(function() {
+        var userID = localStorage.getItem("userID");
+        $("#userID").val(userID);
+      });
 		</script>
 	</head>
 	<body>
