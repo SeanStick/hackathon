@@ -11,7 +11,7 @@ function onSuccess(imageData) {
 	dataPacket = {"requests":[{"features":[{"type":"TEXT_DETECTION","maxResults":1}],"image":{"content":imageData}}]};
 
 	callGoogleVision(dataPacket);
-	document.getElementById("text1").innerHTML = imageData;
+	// document.getElementById("text1").innerHTML = imageData;
 }
 
 function onFail(message) {
@@ -21,11 +21,14 @@ function onFail(message) {
 function resetFields(){
 	$("#url").val('');
 	$("#team").val('');
+
+
+
 }
 
-function sendData(message) {  
+function sendData(message) {
 	$.ajax({
-		url: 'http://soytap.azurewebsites.net/api',
+		url: 'https://hackathon--1378.appspot.com/api',
 		type: 'post',
 		data: {
 			card: message,
@@ -51,8 +54,8 @@ function scan()
 			if(!result.cancelled)
 			{
 				if(result.format == "QR_CODE")
-				{                  
-								   
+				{
+
 					sendData(result.text)
 				}
 			}
