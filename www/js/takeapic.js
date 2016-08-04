@@ -27,12 +27,13 @@ function resetFields(){
 }
 
 function sendData(message) {
+  var userID = localStorage.getItem("userID");
 	$.ajax({
 		url: 'https://hackathon--1378.appspot.com/api',
 		type: 'post',
 		data: {
 			card: message,
-			user: '1',
+			user: userID,
 			toast: true,
 			openTab: true
 		},
@@ -139,4 +140,10 @@ function startDictation() {
 		}
 
 	}
+}
+
+function saveUserID() {
+
+  localStorage.setItem("userID", $("#userID").val());
+
 }
