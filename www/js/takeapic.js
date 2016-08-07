@@ -75,7 +75,7 @@ function sendTextData() {
 
 
 function callGoogleVision(data){
-		console.log(data);
+		//console.log(data);
 		$.ajax({
 			type:"POST",
 			url: "https://vision.googleapis.com/v1/images:annotate?key=AIzaSyAkmciEMCM4IyBvgDkXUPCg-YLiVIwwxRE",
@@ -88,13 +88,12 @@ function callGoogleVision(data){
 			success: function( resp ){
 				// it works
 				$("#results").html(resp);
-				console.log(resp);
+				//console.log(resp);
 				strResp = JSON.stringify(resp);
 
 				var re = /\d{6}/;
-				var str = "fee 123456 fi fo fum";
 				var myArray = strResp.match(re);
-				console.log(myArray[0]);
+				//console.log(myArray[0]);
         alert("google returned" + myArray[0]);
 				// alert(myArray[0]);
 				sendData(myArray[0]);
@@ -109,7 +108,7 @@ function callGoogleVision(data){
 			error: function( resp ){
 				// error!
 				$("#results").html(resp);
-				console.log(resp);
+				//console.log(resp);
 			},
 			complete: function(jqXHR, textStatus){
 				// probably don't need
@@ -120,9 +119,12 @@ function callGoogleVision(data){
 function startDictation() {
 
 	if (window.hasOwnProperty('webkitSpeechRecognition')) {
-
 		var recognition = new webkitSpeechRecognition();
-
+	}
+	else{
+		var recognition = new SpeechRecognition();
+	}
+	try{
 		recognition.continuous = false;
 		recognition.interimResults = false;
 
@@ -130,16 +132,22 @@ function startDictation() {
 		recognition.start();
 
 		recognition.onresult = function(e) {
-			document.getElementById('transcript').value
-															 = e.results[0][0].transcript;
+			var myTranscript = e.results[0][0].transcript;
+			var re = /\d{6}/;
+			var myText = myTranscript.replace(/(\-)|(\s)/g,"");
+			
 			recognition.stop();
-			document.getElementById('labnol').submit();
+
+			document.getElementById('transcript').value = myText.match(re);
+			sendTextData();
 		};
 
 		recognition.onerror = function(e) {
 			recognition.stop();
 		}
-
+	}
+	catch(e){
+		console.log("no speech recognition");
 	}
 }
 
